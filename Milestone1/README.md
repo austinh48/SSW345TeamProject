@@ -12,15 +12,19 @@ Use Cases:
       [S1] Bot will strip info from canvas, user will approve it.
       [S2] Bot will organize the to-do list by the deadlines given to the assignments.
       [S3] Bot will take a name, and a due date for the task.
+  4. Alternative Flows
+      [E1] Users can skip connecting canvas and input all their tasks themselves.
   Use Case: Sending Messages
   1. Preconditions
       None
-  3. Main Flow
+  2. Main Flow
       Bot will keep track of due dates [S1]. It will send reminders at preset time intervals untill the task is marked completed [S2]. The messages from the bot will have a range of friendliness, as set by the user [S3]
-  5. Subflows
+  3. Subflows
       [S1] Due dates will be taken from canvas and the user.
       [S2] Messeges will be sent to the user regularly until they mark off the assignment.
-      [S3] The user will be able to determine the tone of the messages.
+      [S3] The user will be able to determine the tone of the messeges.
+  4. Alternative Flows
+      [E1] If no bot friendliness is set, the bot will default to a neutral tone.
 
 Design Sketches: 
 
