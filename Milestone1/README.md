@@ -5,12 +5,22 @@ Description: This bot will use a canvas api to take assignment names and due dat
 Use Cases:
   Use Case: Canvas Api
   1. Preconditions
-  2. Main Flow
-      Bot will take a task from canvas [S1] and create a prioritized to-do list [S2].
+      Bot must have access to the canvas page.
+  3. Main Flow
+      Bot will take a task from canvas [S1] and create a prioritized to-do list [S2]. Users will also be able to input their own tasks [S3].
   3. Subflows
       [S1] Bot will strip info from canvas, user will approve it.
       [S2] Bot will organize the to-do list by the deadlines given to the assignments.
-  Use Case: 
+      [S3] Bot will take a name, and a due date for the task.
+  Use Case: Sending Messages
+  1. Preconditions
+      None
+  3. Main Flow
+      Bot will keep track of due dates [S1]. It will send reminders at preset time intervals untill the task is marked completed [S2]. The messages from the bot will have a range of friendliness, as set by the user [S3]
+  5. Subflows
+      [S1] Due dates will be taken from canvas and the user.
+      [S2] Messeges will be sent to the user regularly until they mark off the assignment.
+      [S3] The user will be able to determine the tone of the messages.
 
 Design Sketches: 
 
