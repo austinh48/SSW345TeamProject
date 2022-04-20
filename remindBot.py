@@ -19,4 +19,4 @@ async def hi(test):
     await test.send('Hello')
 
 
-bot.run('OTY2Mzk0NjgxNjIzNzE5OTQ2.YmBHLg.wCIy4uvOrZkMpaD29cC40XGReKk')
+bot.run('{Token for the bot}')
