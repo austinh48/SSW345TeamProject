@@ -34,6 +34,7 @@ async def add(assignment, Name, dueDate, priority):
     await assignment.send('Assignment added')
 
 
+
 #test firebase command - doesn't work yet
 @bot.command(pass_context=True)
 async def writeTest(ctx):
