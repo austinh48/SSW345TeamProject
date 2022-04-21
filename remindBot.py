@@ -59,8 +59,16 @@ async def add(ctx, assignmentName, dueDate, priority):
         u'Priority': priority
     })
 
+#list existing assignments
+@bot.command()
+async def list(ctx):
+    users_ref = dBase.collection(u'Assignments')
+    docs = users_ref.stream()
 
+    
 
+    for doc in docs:
+        await ctx.send(f'{doc.to_dict()}')
 
 
 
