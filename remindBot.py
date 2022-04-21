@@ -1,22 +1,50 @@
 import discord
 from discord.ext import commands
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+
+
+from config import *
+
+#firebase stuff doesn't work yet
+#credentials for firebase
+cred = credentials.Certificate(firebase_config)
+databaseApp = firebase_admin.initialize_app(cred, {
+    'databaseURL' : databaseUrl
+})
+
 
 #gets bot/client object from discord.py
 Client = discord.Client()
 
 #needed for commands
 intents = discord.Intents.default()
-#intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-#event listener that switches bot to online
 @bot.event
-async def on_ready(self):
-    print(f'Logged on as {self.user}!')
+async def on_ready():
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+    print('------')
 
+
+#add assignment command
 @bot.command()
-async def hi(test):
-    await test.send('Hello')
+async def add(assignment, Name, dueDate, priority):
+    await assignment.send('Assignment added')
 
 
-bot.run('OTY2Mzk0NjgxNjIzNzE5OTQ2.YmBHLg.wCIy4uvOrZkMpaD29cC40XGReKk')
+#test firebase command - doesn't work yet
+@bot.command(pass_context=True)
+async def writeTest(ctx):
+    color = input("Pick a color")
+    user = ctx.message.author
+    ref = db.reference(f"")
+    ref.update({
+        user : {
+            "Color" :str(color)
+        }
+    })
+
+
+bot.run(token)
