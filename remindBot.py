@@ -45,7 +45,13 @@ async def writeTest(ctx):
     })
 
 #test firebase read
-#@bot.command()
+@bot.command()
+async def readTest(ctx):
+    users_ref = dBase.collection(u'test')
+    docs = users_ref.stream()
+    
+    for doc in docs:
+        print(f'{doc.id} => {doc.to_dict()}')
 
 
 bot.run(token)
