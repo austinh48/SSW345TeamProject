@@ -2,18 +2,19 @@ import discord
 from discord.ext import commands
 import firebase_admin
 from firebase_admin import credentials
+from firebase_admin import firestore
 from firebase_admin import db
 
 
 from config import *
 
-#firebase stuff doesn't work yet
 #credentials for firebase
 cred = credentials.Certificate(firebase_config)
 databaseApp = firebase_admin.initialize_app(cred, {
     'databaseURL' : databaseUrl
 })
 
+dBase = firestore.client()
 
 #gets bot/client object from discord.py
 Client = discord.Client()
@@ -35,17 +36,16 @@ async def add(assignment, Name, dueDate, priority):
 
 
 
-#test firebase command - doesn't work yet
-@bot.command(pass_context=True)
+#test firebase write
+@bot.command()
 async def writeTest(ctx):
-    color = input("Pick a color")
-    user = ctx.message.author
-    ref = db.reference(f"")
-    ref.update({
-        user : {
-            "Color" :str(color)
-        }
+    doc_ref = dBase.collection(u'test').document(u'color')
+    doc_ref.set({
+        u'color': u'green'
     })
+
+#test firebase read
+#@bot.command()
 
 
 bot.run(token)
