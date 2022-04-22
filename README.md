@@ -3,3 +3,5 @@
 Sean Hodges - austinh48
 
 Caitlin McLaughlin - cmclaug
+
+Peace Magomero - PeaceM1
