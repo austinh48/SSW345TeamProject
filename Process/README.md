@@ -5,4 +5,4 @@ Scrum Notes
 
 Project Management:
 
-Due to the api key changing everytime when being pushed into github, we found it more viable to work in person. We would have in-person meetings once a week and do the code using visual studio live share with Austin being the host computer, hence why all the commits came from Austin.
+Due to the api key changing everytime when being pushed into github, we found it more viable to work in person to avoid the hindrance of it. We would have in-person meetings once a week and do the code using visual studio live share with Austin being the host computer, hence why all the commits came from Austin.
