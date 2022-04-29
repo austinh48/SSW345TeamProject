@@ -3,7 +3,8 @@ from discord.ext import commands, tasks
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-from grpc import Channel
+from datetime import datetime
+import threading
 
 from config import *
 
@@ -69,8 +70,25 @@ async def notification():
     channel = bot.get_channel(966395861305278486)
     await channel.send("Test")
 
+#put notification in this to run the notificaton event
 @bot.event
 async def on_ready():
-    notification.start()
+    checkTime()
+
+#might have to make this a bot event
+async def checkTime():
+    threading.Timer(1, checkTime).start()
+
+    now = datetime.now()
+
+    current_time = now.strftime("%H:%M:%S")
+    print("Current time: ", current_time)
+
+    #checks time to send notifications
+    if(current_time == '03:35:00'):
+        channel = bot.get_channel(966395861305278486)
+        await channel.send("Testing")
+
+checkTime()
 
 bot.run(token)
