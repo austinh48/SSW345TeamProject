@@ -64,6 +64,13 @@ async def completed(ctx, docName):
     dBase.collection(u'Assignments').document(docName).delete()
     await ctx.send("Good job! The assignment has been removed from your to do list.")
 
+#deletes an assignment
+@bot.command()
+async def delete(ctx, docName):
+    #deletes the document that was specified by the docName
+    dBase.collection(u'Assignments').document(docName).delete()
+    await ctx.send("The assignment has been deleted.")
+
 #sends a notification
 @tasks.loop(minutes=1)
 async def notification():
@@ -73,7 +80,7 @@ async def notification():
 #put notification in this to run the notificaton event
 @bot.event
 async def on_ready():
-    checkTime()
+    await checkTime()
 
 #might have to make this a bot event
 async def checkTime():
